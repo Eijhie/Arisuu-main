@@ -1,0 +1,41 @@
+from tkinter import *
+
+count = 0
+
+def click():
+    global count
+    count += 1
+    print(count)
+
+def create_button(text):
+    button = Button(window,
+                    text=text,
+                    command=click,
+                    font=("Times New Roman", 20),
+                    fg="#1893f8",  # Set text color to #1893f8
+                    bg="white",  # White background
+                    # Remove activeforeground and activebackground
+                    # activeforeground="#00FF00",
+                    # activebackground="white",
+                    state=ACTIVE,  # Keep state as ACTIVE
+                    compound='bottom',
+                    width=30,
+                    highlightthickness=0,  # Remove highlight border
+                    highlightcolor="white",  # Set highlight color to match the background
+                    activebackground="white",  # Match active background to the button's background
+                    activeforeground="#1893f8"  # Keep the text color the same for active state
+                    )
+    button.pack(pady=15)  # Use pack layout with padding
+    
+window = Tk()
+
+window.title("Arisu Inventory System")
+window.configure(bg="#97bcc7")  # Light blue background
+window.geometry("800x600")  # Set window size to 800x600 pixels
+
+create_button("Cashier")
+create_button("Add Item")
+create_button("Remove Item")
+create_button("Check inventory")
+
+window.mainloop()
